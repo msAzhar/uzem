@@ -1,0 +1,16 @@
+<h1>Görevler</h1>
+<% @items.each do |item|%>
+	<% if item.is_completed %>
+	<%= link_to "Geri Al", complete_item_path(item) , method: :patch %> <!--işimizi -->
+	<% else %>
+	<%= link_to "Tamamla", complete_item_path(item) , method: :patch %>
+	<% end %>
+<% if item.user.email   %> <br><!--  item.user dersek butun verileri yazar. -->
+	<%= item.user.email  %>
+<%= link_to "Sil", item_path(item),method: :delete %>
+
+---------------- <br><br>
+<% end %>
+<% end %>
+
+<%= render 'form' %> <!-- form => oluşturduğumuz dosya ismidir.-->

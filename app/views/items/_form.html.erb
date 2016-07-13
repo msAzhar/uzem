@@ -1,0 +1,8 @@
+<%= form_for :item do |f|%><!--@item burada geçerli değildir. böyle bir değiken yok-->
+<%= f.text_area :content, placeholder: "Lütfen, veri giriniz" %>
+<%= f.hidden_field :is_completed, value: false %>
+<% if user_signed_in? %> <!--true dönüyor giriş yapılmışsa-->
+<%= f.hidden_field :user_id, value: current_user.id %><br>
+<% end %>
+<%= f.submit "Kaydet" %>
+<% end %>
